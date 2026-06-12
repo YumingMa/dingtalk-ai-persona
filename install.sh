@@ -6,7 +6,7 @@
 set -e
 
 # ── 管理员配置区（部署前修改）────────────────────────────────
-HAI_GATEWAY_URL="${HAI_GATEWAY_URL:-https://your-lightchat-server.example}"
+HAI_GATEWAY_URL="${HAI_GATEWAY_URL:-https://api.hai.network/unified-preview/openai}"
 HAI_GATEWAY_MODEL="${HAI_GATEWAY_MODEL:-claude-sonnet-4-6}"
 INSTALL_DIR="${INSTALL_DIR:-$HOME/ai-persona}"
 # ────────────────────────────────────────────────────────────────

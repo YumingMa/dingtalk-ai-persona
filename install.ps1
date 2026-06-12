@@ -4,7 +4,7 @@
 # ==============================================================
 
 # ── 管理员配置区 ───────────────────────────────────────────────
-$HAI_GATEWAY_URL   = "https://your-lightchat-server.example"   # HAI Gateway 地址
+$HAI_GATEWAY_URL   = "https://api.hai.network/unified-preview/openai"   # HAI Gateway 地址
 $INSTALL_DIR       = "$env:USERPROFILE\ai-persona"              # 安装目录
 $PYTHON_MIN_VER    = "3.10"
 # ────────────────────────────────────────────────────────────────
