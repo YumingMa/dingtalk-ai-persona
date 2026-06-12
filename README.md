@@ -26,12 +26,12 @@
 
 **Windows：**
 ```powershell
-irm https://your-company.com/setup.ps1 | iex
+irm https://git.appexnetworks.com.cn/maym/dingai/-/raw/main/install.ps1 | iex
 ```
 
 **macOS / Linux：**
 ```bash
-curl -fsSL https://your-company.com/setup.sh | bash
+curl -fsSL https://git.appexnetworks.com.cn/maym/dingai/-/raw/main/install.sh | bash
 ```
 
 安装脚本自动完成：Python → dws → 钉钉登录 → 创建机器人 → 配置 HAI Gateway → 启动。
@@ -39,8 +39,8 @@ curl -fsSL https://your-company.com/setup.sh | bash
 ## 手动安装
 
 ```bash
-git clone https://github.com/your-org/dingtalk-ai-persona
-cd dingtalk-ai-persona
+git clone https://git.appexnetworks.com.cn/maym/dingai.git
+cd dingai
 pip install -r requirements.txt
 cp .env.example .env   # 填写配置
 python main.py
@@ -54,7 +54,7 @@ python main.py
 DINGTALK_APP_KEY=your_app_key
 DINGTALK_APP_SECRET=your_app_secret
 ANTHROPIC_API_KEY=your_hai_gateway_token
-ANTHROPIC_BASE_URL=https://your-lightchat-server.example
+ANTHROPIC_BASE_URL=https://api.hai.network/unified-preview/openai
 ```
 
 详细说明见 [USER_GUIDE.md](USER_GUIDE.md)。
