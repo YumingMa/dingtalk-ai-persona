@@ -24,14 +24,14 @@
 
 ## 安装
 
-**Windows：**
+**Windows（PowerShell）：**
 ```powershell
-irm https://git.appexnetworks.com.cn/maym/dingai/-/raw/main/install.ps1 | iex
+irm https://raw.githubusercontent.com/YumingMa/dingtalk-ai-persona/main/install.ps1 -OutFile $env:TEMP\ai-setup.ps1; & $env:TEMP\ai-setup.ps1
 ```
 
 **macOS / Linux：**
 ```bash
-curl -fsSL https://git.appexnetworks.com.cn/maym/dingai/-/raw/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/YumingMa/dingtalk-ai-persona/main/install.sh | bash
 ```
 
 安装脚本自动完成：Python → dws → 钉钉登录 → 创建机器人 → 配置 HAI Gateway → 启动。
