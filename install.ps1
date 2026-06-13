@@ -151,6 +151,13 @@ Write-Ok "All files downloaded"
 Write-Step 4 "Install Python dependencies"
 
 Set-Location $INSTALL_DIR
+
+# Create virtual environment for isolation
+Write-Info "Creating virtual environment..."
+& $pyCmd -m venv "$INSTALL_DIR\venv"
+$pyCmd = "$INSTALL_DIR\venv\Scripts\python.exe"
+Write-Ok "Virtual environment created"
+
 try {
     & $pyCmd -m pip install -r requirements.txt -q
     Write-Ok "Dependencies installed"
@@ -160,7 +167,7 @@ try {
         & $pyCmd -m pip install -r requirements.txt -q -i https://pypi.tuna.tsinghua.edu.cn/simple/
         Write-Ok "Dependencies installed (mirror)"
     } catch {
-        Write-Warn "Please run manually: pip install -r requirements.txt"
+        Write-Warn "Please run manually: .\venv\Scripts\pip install -r requirements.txt"
         Pause-Key "After installation, press any key to continue..."
     }
 }
@@ -276,7 +283,7 @@ Write-Ok ".env written to $INSTALL_DIR\.env"
 # ════════════════════════════════════════════════════
 Write-Step 9 "Create desktop shortcut"
 
-$batContent = "@echo off`r`ncd /d `"$INSTALL_DIR`"`r`n$pyCmd main.py`r`npause"
+$batContent = "@echo off`r`ncd /d `"$INSTALL_DIR`"`r`n`"$INSTALL_DIR\venv\Scripts\python.exe`" main.py`r`npause"
 [System.IO.File]::WriteAllText("$INSTALL_DIR\start.bat", $batContent, [System.Text.Encoding]::ASCII)
 
 $desktop = [System.Environment]::GetFolderPath("Desktop")
