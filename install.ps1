@@ -203,8 +203,13 @@ try {
         --desc "My DingTalk AI Assistant" `
         --yes --format json 2>$null
     $robot = $robotOut | ConvertFrom-Json -ErrorAction SilentlyContinue
-    $APP_KEY    = $robot.clientId    -or $robot.appKey    -or $robot.result.clientId
-    $APP_SECRET = $robot.clientSecret -or $robot.appSecret -or $robot.result.clientSecret
+    # Use if/elseif to avoid -or converting strings to boolean
+    if     ($robot.clientId)           { $APP_KEY = [string]$robot.clientId }
+    elseif ($robot.appKey)             { $APP_KEY = [string]$robot.appKey }
+    elseif ($robot.result.clientId)    { $APP_KEY = [string]$robot.result.clientId }
+    if     ($robot.clientSecret)       { $APP_SECRET = [string]$robot.clientSecret }
+    elseif ($robot.appSecret)          { $APP_SECRET = [string]$robot.appSecret }
+    elseif ($robot.result.clientSecret){ $APP_SECRET = [string]$robot.result.clientSecret }
 } catch {}
 
 if (-not $APP_KEY) {
