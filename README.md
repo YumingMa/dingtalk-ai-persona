@@ -1,6 +1,9 @@
-# AI 分身 (DingTalk AI Persona)
+# Cortex OS · DingTalk AI Persona
 
-> 每个员工在钉钉里拥有自己的 AI 分身，以本人身份操作钉钉，本地运行，无需服务器。
+> Part of **Cortex OS** — Enterprise AI Operating System
+> *The thinking center of your enterprise.*
+
+这是 Cortex OS 的钉钉入口模块：每个员工在钉钉中拥有自己的 AI 分身，以本人身份和权限操作企业系统。
 
 ## 功能
 
